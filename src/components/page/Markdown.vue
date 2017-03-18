@@ -14,7 +14,7 @@
         <div class="plugins-tips">
             <p>Since the markdown syntax has been used, then there is a very practical problem. How to show the data in the foreground?？</p>
             <br>
-            <p>This time you need to analyze the markdown syntax. can use <a href="https://github.com/miaolz123/vue-markdown" target="_blank">vue-markdown</a>：一个基于vue.js的markdown语法解析插件。（这里不作展开，有需要自行了解）</p>
+            <p>This time you need to analyze the markdown syntax. can use <a href="https://github.com/miaolz123/vue-markdown" target="_blank">vue-markdown</a>,  consult it deeper understanging </p>
         </div>
     </div>
 </template>

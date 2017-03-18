@@ -4,10 +4,15 @@ import Vue from 'vue';
 import App from './App';
 import router from './router';
 import ElementUI from 'element-ui';
+import locale from 'element-ui/lib/locale/lang/en' // to set locale to english
+import store from './store'
+
 import '../theme/index.css' // generated Element-UI theme
 
-import store from './store'
-Vue.use(ElementUI);
+
+Vue.use(ElementUI, {
+    locale
+})
 
 
 router.beforeEach((to, from, next) => {

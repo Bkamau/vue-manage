@@ -46,22 +46,22 @@
             return {
                 tableData: [{
                     date: '2017-02-02',
-                    name: 'vue admin',
+                    name: 'admin',
                     address: 'Someplace 18th street',
                     tag: 'Home'
                 }, {
                     date: '2017-02-04',
-                    name: 'vue admin',
+                    name: 'admin',
                     address: 'Someplace 19th street',
                     tag: 'Work'
                 }, {
                     date: '2017-02-01',
-                    name: 'vue admin',
+                    name: 'admin',
                     address: 'Someplace 20th street',
                     tag: 'Home'
                 }, {
                     date: '2017-02-03',
-                    name: 'vue admin',
+                    name: 'admin',
                     address: 'Someplace 21th street',
                     tag: 'Work'
                 }]
@@ -75,10 +75,10 @@
                 return row.tag === value;
             },
             handleEdit(index, row) {
-                this.$message('Edit the first'+(index+1)+'row');
+                this.$message('Edited row '+(index+1));
             },
             handleDelete(index, row) {
-                this.$message.error('Delete the first'+(index+1)+'row');
+                this.$message.error('Deleted row '+(index+1));
             }
         }
     }
