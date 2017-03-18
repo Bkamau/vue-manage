@@ -35,12 +35,15 @@ npm test
 ```
 
 ## Generating themes
+run
 
  > npm run generate_default_styles
 
 Element-theme will generate default styles. Just change primary-color in src/assets/element-variables.css and run:
 
  > npm run generate_theme
+
+ ## Shots
 
 ![](https://github.com/Bkamau/vue-manage/blob/master/shots/login.png)
 ![](https://github.com/Bkamau/vue-manage/blob/master/shots/chart.png)
