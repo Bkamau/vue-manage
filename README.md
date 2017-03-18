@@ -4,8 +4,8 @@
 
 ## Getting started
 
-    git clone https://github.com/Metnew/vue-element-starter.git vue-project  
-    cd vue-project && rm -rf .git
+    git clone https://github.com/Bkamau/vue-manage.git vue-manage  
+    cd vue-manage 
     npm install
     npm run generate_default_styles
     npm run generate_theme
@@ -13,8 +13,6 @@
 Now app is ready and you can run it with:
 
 ``` bash
-# install dependencies
-npm install
 
 # serve with hot reload at localhost:8080
 npm run dev
