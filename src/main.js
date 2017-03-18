@@ -9,6 +9,23 @@ import '../theme/index.css' // generated Element-UI theme
 import store from './store'
 Vue.use(ElementUI);
 
+
+router.beforeEach((to, from, next) => {
+    let authentic = store.getters.isAuthentic
+    if (to.matched.some(record => record.meta.requiresAuth) && !authentic) {
+        next({
+            path: '/login',
+            query: {
+                redirect: to.fullPath
+            }
+        })
+    } else {
+        next()
+    }
+})
+
+
+
 new Vue({
     router,
     store,

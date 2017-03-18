@@ -5,7 +5,7 @@
 ## Getting started
 
     git clone https://github.com/Bkamau/vue-manage.git vue-manage  
-    cd vue-manage 
+    cd vue-manage && rm -rf .git
     npm install
     npm run generate_default_styles
     npm run generate_theme
@@ -39,7 +39,7 @@ npm test
 
 Element-theme will generate default styles. Just change primary-color in src/assets/element-variables.css and run:
 
- npm run generate_theme
+ > npm run generate_theme
 
 
 For detailed explanation on how things work, checkout the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).

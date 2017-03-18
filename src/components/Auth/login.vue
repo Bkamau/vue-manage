@@ -1,37 +1,36 @@
 <template>
   <div>
-    <el-form :model="ruleForm2" :rules="rules2" ref="ruleForm2" label-position="left" label-width="0px" class="demo-ruleForm login-container">
-      <el-form-item prop="account">
-        <el-input type="text" v-model="ruleForm2.account" auto-complete="off" placeholder="Username"></el-input>
+    <el-form :model="loginForm" :rules="rules2" ref="loginForm" label-position="left" label-width="0px" class="demo-ruleForm login-container">
+      <el-form-item prop="username">
+        <el-input type="text" v-model="loginForm.username" auto-complete="off" placeholder="Username"></el-input>
       </el-form-item>
-      <el-form-item prop="checkPass">
-        <el-input type="password" v-model="ruleForm2.checkPass" auto-complete="off" placeholder="Password"></el-input>
+      <el-form-item prop="password">
+        <el-input type="password" v-model="loginForm.password" auto-complete="off" placeholder="Password"></el-input>
       </el-form-item>
       <el-checkbox v-model="checked" checked class="remember">Remember password</el-checkbox>
       <el-form-item style="width:100%;">
-        <el-button type="primary" style="width:100%;" @click.native.prevent="handleSubmit2" :loading="logining">Login</el-button>
+        <el-button type="primary" style="width:100%;" @click.native.prevent="submitLogin" :loading="logining">Login</el-button>
       </el-form-item>
     </el-form>
   </div>
 </template>
 
 <script>
-
   export default {
     data() {
       return {
         logining: false,
-        ruleForm2: {
-          account: '',
-          checkPass: ''
+        loginForm: {
+          username: '',
+          password: ''
         },
         rules2: {
-          account: [{
+          username: [{
             required: true,
             message: 'Username is required',
             trigger: 'blur'
           }, ],
-          checkPass: [{
+          password: [{
             required: true,
             message: 'Password is required',
             trigger: 'blur'
@@ -42,30 +41,13 @@
     },
     methods: {
       handleReset2() {
-        this.$refs.ruleForm2.resetFields();
+        this.$refs.loginForm.resetFields();
       },
-      handleSubmit2(ev) {
-        var _this = this;
-        this.$refs.ruleForm2.validate((valid) => {
+      submitLogin() {
+        this.$refs.loginForm.validate((valid) => {
           if (valid) {
-            this.logining = true;
-            const loginParams = {
-              username: this.ruleForm2.account,
-              password: this.ruleForm2.checkPass
-            };
-            loginRequest(loginParams).then(
-              (response) => {
-                this.logining = false;
-                this.$store.commit('setLogin', response.data.token)
-              }, (response) => {
-                this.$notify({
-                  title: 'Error',
-                  message: 'Did not work, try again',
-                  type: 'error'
-                });
-                this.logining = false;
-                this.handleReset2();
-              });
+            this.$store.dispatch('authenticate', this.loginForm.username)
+            this.$router.push('/');
           } else {
             return false
           }
@@ -75,7 +57,7 @@
   }
 </script>
 
-<style lang="scss" scoped>
+<style scoped>
   .login-container {
     padding: 15px;
   }

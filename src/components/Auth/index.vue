@@ -37,7 +37,7 @@
   };
 </script>
 
-<style lang="scss" scoped>
+<style scoped>
   .login {
     /* Set rules to fill background */
     min-height: 100%;
@@ -50,7 +50,10 @@
     top: 0;
     left: 0;
     background: #324057;
-    .card-content {
+  
+  }
+
+  .card-content {
       width: 350px;
       padding: 40px 40px;
       position: relative;
@@ -62,5 +65,4 @@
       margin-right: -50%;
       transform: translate(-50%, -50%)
     }
-  }
 </style>

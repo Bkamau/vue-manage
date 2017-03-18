@@ -19,7 +19,6 @@
 </template>
 
 <script>
-
   export default {
     data() {
       var validateUsername = (rule, value, callback) => {
@@ -87,7 +86,12 @@
       submitForm(formName) {
         this.$refs[formName].validate((valid) => {
           if (valid) {
-            this.register();
+            this.$notify({
+              title: 'Registered',
+              message: 'Consider yourself registered',
+              type: 'success'
+            });
+            this.resetForm('registration')
           } else {
             return false;
           }
@@ -96,36 +100,11 @@
       resetForm(formName) {
         this.$refs[formName].resetFields();
       },
-      register() {
-        this.registering = true
-        const loginParams = {
-          username: this.registration.username,
-          email: this.registration.email,
-          password: this.registration.password
-        };
-        registerRequest(loginParams).then((response) => {
-          this.$notify({
-            title: 'Registered',
-            message: 'Check your Email to activate your account',
-            type: 'success'
-          });
-          this.registering = false;
-          this.resetForm();
-        }, (response) => {
-          this.$notify({
-            title: 'Error',
-            message: response.body,
-            type: 'error'
-          });
-          this.registering = false;
-          this.resetForm();
-        });
-      },
     }
   }
 </script>
 
-<style lang="scss" scoped>
+<style scoped>
   .container {
     color: #F9FAFC;
     padding: 15px;

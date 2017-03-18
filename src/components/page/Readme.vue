@@ -11,9 +11,11 @@
                 <h1>Vue-admin</h1>
                 <p> Based on Vue.js 2 + Element UI </p>
                 <h2>Features</h2>
-                <el-checkbox disabled checked>Element UI</el-checkbox>
+                <el-checkbox disabled checked>Element UI, Vuex, vue-router, axios</el-checkbox>
                 <br>
                 <el-checkbox disabled checked>Login/logout</el-checkbox>
+                <br>
+                <el-checkbox disabled checked>Register</el-checkbox>
                 <br>
                 <el-checkbox disabled checked>Form</el-checkbox>
                 <br>

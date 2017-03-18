@@ -1,23 +1,39 @@
 <template>
     <div class="sidebar">
-        <el-menu :default-active="onRoutes" class="el-menu-vertical-demo" theme="dark" unique-opened router>
-            <el-menu-item index="readme">
+    
+        <el-menu :default-active="onRoutes"
+                 class="el-menu-vertical-demo"
+                 theme="dark"
+                 unique-opened
+                 router>
+    
+            <div class="logo">
+                <img class="logo"
+                     src="../../assets/logo.png" />
+            </div>
+    
+            <el-menu-item index="/">
                 <i class="el-icon-setting"></i>Readme
             </el-menu-item>
             <el-submenu index="2">
-                <template slot="title"><i class="el-icon-menu"></i>Form</template>
+                <template slot="title"><i class="el-icon-menu"></i>Form
+                </template>
                 <el-menu-item index="basetable">Basic form</el-menu-item>
                 <el-menu-item index="vuetable">Vue table widget</el-menu-item>
             </el-submenu>
             <el-submenu index="3">
-                <template slot="title"><i class="el-icon-date"></i>Form</template>
+                <template slot="title">
+                    <i class="el-icon-date"></i> Form
+                </template>
                 <el-menu-item index="baseform">Basic form</el-menu-item>
                 <el-menu-item index="vueeditor">Editor</el-menu-item>
                 <el-menu-item index="markdown">markdown</el-menu-item>
                 <el-menu-item index="upload">File Upload</el-menu-item>
             </el-submenu>
             <el-submenu index="4">
-                <template slot="title"><i class="el-icon-star-on"></i>Chart</template>
+                <template slot="title">
+                    <i class="el-icon-star-on"></i> Chart
+                </template>
                 <el-menu-item index="basecharts">Base chart</el-menu-item>
                 <el-menu-item index="mixcharts">Mixed chart</el-menu-item>
             </el-submenu>
@@ -26,26 +42,35 @@
 </template>
 
 <script>
-    export default {
-        computed:{
-            onRoutes(){
-                return this.$route.path.replace('/','');
-            }
+export default {
+    computed: {
+        onRoutes() {
+            return this.$route.path.replace('/', '');
         }
     }
+}
 </script>
 
 <style scoped>
-    .sidebar{
-        display: block;
-        position: absolute;
-        width: 250px;
-        left: 0;
-        top: 70px;
-        bottom:0;
-        background: #2E363F;
-    }
-    .sidebar > ul {
-        height:100%;
-    }
+.sidebar {
+    display: block;
+    position: absolute;
+    width: 250px;
+    left: 0;
+    top: 70px;
+    bottom: 0;
+    background: #2E363F;
+}
+
+.sidebar>ul {
+    height: 100%;
+}
+
+.logo {
+    text-align: center;
+    background: transparent;
+    width: 100%;
+    width: 215px;
+    height: 215px;
+}
 </style>

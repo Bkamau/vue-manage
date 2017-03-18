@@ -1,6 +1,6 @@
 <template>
     <div class="header">
-        <div class="logo">Vue-admin</div>
+        <div class="logo">Vue-manage</div>
         <div class="user-info">
             <el-dropdown trigger="click" @command="handleCommand">
                 <span class="el-dropdown-link">
@@ -18,19 +18,19 @@
     export default {
         data() {
             return {
-                name: 'linxin'
+                name: 'Bkamau'
             }
         },
         computed:{
             username(){
-                let username = localStorage.getItem('ms_username');
+                let username = localStorage.getItem('vm_username');
                 return username ? username : this.name;
             }
         },
         methods:{
             handleCommand(command) {
                 if(command == 'loginout'){
-                    localStorage.removeItem('ms_username')
+                    this.$store.dispatch('nullenticate')
                     this.$router.push('/login');
                 }
             }
