@@ -2,6 +2,7 @@
 
 > A vue management system
 
+
 ## Getting started
 
     git clone https://github.com/Bkamau/vue-manage.git vue-manage  
@@ -41,5 +42,7 @@ Element-theme will generate default styles. Just change primary-color in src/ass
 
  > npm run generate_theme
 
+![](https://github.com/Bkamau/vue-manage/blob/master/shots/login.png)
+![](https://github.com/Bkamau/vue-manage/blob/master/shots/chart.png)
 
 For detailed explanation on how things work, checkout the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
