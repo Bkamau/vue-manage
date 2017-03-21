@@ -27,7 +27,7 @@
                 content:'',
                 configs: {
                     status: true,
-                    initialValue: 'Hello BBK',
+                    initialValue: 'Hello World...',
                     renderingConfig: {
                         codeSyntaxHighlighting: true,
                         highlightingTheme: 'atom-one-light'
