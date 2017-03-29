@@ -4,9 +4,11 @@ import VueAxios from 'vue-axios'
 
 Vue.use(VueAxios, axios)
 
-let URL = '';
+let authURL = 'http://localhost:9000/authentication';
+let registerURL = 'http://localhost:9999/api/register';
 
-export const request = params => { return Vue.axios.get(`${URL}`,   params); };
+export const authRequest = params => { return Vue.axios.post(`${authURL}`, params); };
+export const registerRequest = params => { return Vue.axios.post(`${registerURL}`, params); };
 
 //  Vue.http.interceptors.push((req, next) => {
 //   if (req.url.startsWith('/secured')) {

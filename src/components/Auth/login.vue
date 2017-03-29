@@ -16,13 +16,15 @@
 </template>
 
 <script>
+import {authRequest} from '../../api/api'
   export default {
     data() {
       return {
         logining: false,
         loginForm: {
           username: '',
-          password: ''
+          password: '',
+          remember:false
         },
         rules2: {
           username: [{
@@ -46,8 +48,19 @@
       submitLogin() {
         this.$refs.loginForm.validate((valid) => {
           if (valid) {
-            this.$store.dispatch('authenticate', this.loginForm.username)
-            this.$router.push('/');
+            const data = {
+                login: this.loginForm.username,
+                password: this.loginForm.password,
+                'remember-me': this.loginForm.remember
+              }
+
+              authRequest(data).then((resp) => {
+                 this.$message('ok');
+              }, (resp) => {
+                  this.$message.error('Oops, this is a error message.');
+              })
+           // this.$store.dispatch('authenticate', this.loginForm.username)
+           // this.$router.push('/');
           } else {
             return false
           }

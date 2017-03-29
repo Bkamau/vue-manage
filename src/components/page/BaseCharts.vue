@@ -30,25 +30,25 @@
 
 <script>
 import IEcharts from 'vue-echarts-v3';
+
 export default {
-    components: {
-        IEcharts
-    },
-    data: () => ({
+    data() {
+        let datax = []
+        return {
         line: {
             color: ["#20a0ff", "#13CE66", "#F7BA2A", "#FF4949"],
             title: {
                 text: 'Graph'
             },
             xAxis: {
-                data: ["Shirt", "sweater", "chiffon shirt", "pants", "high heels", "socks"]
+                data: ["Helsinki", "Tampere", "Turku", "Oulu", "Rovaniemi", "Vaasa"]
             },
             yAxis: {},
             series: [
                 {
                     name: "Sales",
                     type: "line",
-                    data: [5, 20, 36, 10, 10, 20]
+                    data: datax
                 }
             ]
         },
@@ -58,7 +58,7 @@ export default {
                 text: 'Histogram'
             },
             xAxis: {
-                data: ["Shirt", "sweater", "chiffon shirt", "pants", "high heels", "socks"]
+                data: ["Helsinki", "Tampere", "Turku", "Oulu", "Rovaniemi", "Vaasa"]
             },
             yAxis: {},
             series: [
@@ -82,7 +82,7 @@ export default {
             legend: {
                 orient: 'vertical',
                 left: 'left',
-                data: ["Shirt", "sweater", "chiffon shirt", "pants", "high heels"]
+                data: ["Helsinki", "Tampere", "Turku", "Oulu", "Rovaniemi"]
             },
             series: [
                 {
@@ -91,11 +91,11 @@ export default {
                     radius: '55%',
                     center: ['50%', '50%'],
                     data: [
-                        { value: 335, name: 'shirt' },
-                        { value: 310, name: 'Sweater' },
-                        { value: 234, name: 'Chiffon shirt' },
-                        { value: 135, name: 'pants' },
-                        { value: 548, name: 'High heels' }
+                        { value: 335, name: 'Helsinki' },
+                        { value: 310, name: 'Tampere' },
+                        { value: 234, name: 'Turku' },
+                        { value: 135, name: 'Oulu' },
+                        { value: 548, name: 'Rovaniemi' }
                     ],
                     itemStyle: {
                         emphasis: {
@@ -120,7 +120,7 @@ export default {
             legend: {
                 orient: 'vertical',
                 left: 'left',
-                data: ["shirt", "Sweater", "Chiffon shirt", "pants", "High heels"]
+                data: ["Helsinki", "Tampere", "Turku", "Oulu", "Rovaniemi"]
             },
             series: [
                 {
@@ -128,11 +128,11 @@ export default {
                     type: 'pie',
                     radius: ['40%', '60%'],
                     data: [
-                        { value: 335, name: 'shirt' },
-                        { value: 310, name: 'Sweater' },
-                        { value: 234, name: 'Chiffon shirt' },
-                        { value: 135, name: 'pants' },
-                        { value: 548, name: 'High heels' }
+                        { value: 335, name: 'Helsinki' },
+                        { value: 310, name: 'Tampere' },
+                        { value: 234, name: 'Turku' },
+                        { value: 135, name: 'Oulu' },
+                        { value: 548, name: 'Rovaniemi' }
                     ],
                     itemStyle: {
                         emphasis: {
@@ -213,7 +213,7 @@ export default {
                     y: '5%',
                     itemStyle: {
                         normal: {
-                           
+
                             label: {
                                 position: 'left'
                             }
@@ -237,7 +237,7 @@ export default {
                     sort: 'ascending',
                     itemStyle: {
                         normal: {
-                           
+
                             label: {
                                 position: 'left'
                             }
@@ -253,7 +253,37 @@ export default {
                 }
             ]
         }
-    })
+           
+        }
+    },
+    components: {
+        IEcharts
+    },
+    beforeDestroy() {
+        clearInterval(this.interval)
+    },
+    mounted() {
+        this.shuffleData()
+        this.interval = setInterval(this.shuffleData, 1000 * 2)
+    },
+
+    methods: {
+        shuffleData() {
+            let arr = []
+            for (var i = 0; i < 6; i++) {
+                arr.push(this.rand())
+            }
+            
+            this.line.series[0].data = arr
+            this.bar.series[0].data = arr
+            console.log(this.datax)
+
+        },
+        rand() {
+            return Math.floor(Math.random() * (40 - 5 + 1)) + 2;
+        }
+    },
+
 }
 </script>
 

@@ -7,7 +7,7 @@ export default new Router({
     routes: [{
             path: '/',
             component: resolve => require(['../components/common/Home.vue'], resolve),
-            meta: { requiresAuth: true },
+         //   meta: { requiresAuth: true },
             children: [{
                     path: '/',
                     component: resolve => require(['../components/page/Readme.vue'], resolve)
